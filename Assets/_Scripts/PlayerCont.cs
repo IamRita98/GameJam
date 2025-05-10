@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerCont : MonoBehaviour
 {
     //Public variable can been seen and changed in the Unity Editor underneath the script component attached to the gameobject in the Inspector. You can see I've set speed to a default 0
     //here but in the editor we can quickly change it for playtesting. If we want then once we have a final number we can make this private and pass it to class of Constants.
