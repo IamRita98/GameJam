@@ -13,9 +13,17 @@ public class MouseCamControl : MonoBehaviour
     private Vector2 mouseLook;
     private Vector2 smoothV2;
 
+    Vector2 md;
+
     //playerGO short for player Game Object, or, the player character. GameObject is a reference to ANY object in Unity. The player, the camera, an uninteractable banana asset,
     //even the object that is going to be holding our audio player, these can all be referenced through GameObject.
     private GameObject playerGO;
+
+
+    //Variables for the newly implemented looking code at the bottom. This version is w/o lerping so it's slightly more jarring, but it still has sens so it's not too bad
+    float rotationX = 0;
+    float lookSpeed = 2;
+    float lookXLimit = 60;
 
     private void Awake()
     {
@@ -32,31 +40,41 @@ public class MouseCamControl : MonoBehaviour
 
     private void Update()
     {
-        //Temp variable that we re-fetch every frame when Update is called to reflect how the mouse is moving.
-        //Note that we have to declare a "new" vector2 anytime you want to declare a vector2 variable. You would not use 'new' if it was an pre-defined vector2, such as 
-        //vector2.Up which is defined as (0,1) or 0 in the x position, and positive 1 in the y position.
-        Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        /*        //Temp variable that we re-fetch every frame when Update is called to reflect how the mouse is moving.
+                //Note that we have to declare a "new" vector2 anytime you want to declare a vector2 variable. You would not use 'new' if it was an pre-defined vector2, such as 
+                //vector2.Up which is defined as (0,1) or 0 in the x position, and positive 1 in the y position.
+                md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
-        //I'm not going to lie, idrk 100% what's going on here, I found this script online because I've never done first person controls. I believe whats happening
-        //is that we're applying the sens and smoothing to our previous values so that the movement is at a capped/regulted speed regrdless of how fst the mouse moves. So our previous md var
-        //are being scaled to our sens and smoothing values
-        md = Vector2.Scale(md, new Vector2(mouseSens * smoothing, mouseSens * smoothing));
+                //I'm not going to lie, idrk 100% what's going on here, I found this script online because I've never done first person controls. I believe whats happening
+                //is that we're applying the sens and smoothing to our previous values so that the movement is at a capped/regulted speed regrdless of how fst the mouse moves. So our previous md var
+                //are being scaled to our sens and smoothing values
+                md = Vector2.Scale(md, new Vector2(mouseSens * smoothing, mouseSens * smoothing));
 
-        //Interpolating between the camera's rotation and our actual mouse movements. This is where the smoothing is actually applied to take out the jaggedness
-        //Interpolation is the act of taking a value, such as the distance between where we are currently look and where we should be looking after the mouse movement has been input,
-        //as distributing that values out over a set time-- So instead of going from x=1 to x=20 instantly, we make it go something like x+2 every .2 seconds until x=20. Just as an example
-        //Lerp is short for Linear Interpretation, meaning that the value is changing at a set rate, as opposed to dynamic interpretation where something might start slow then accelerate
-        //until it reaches it's destination.
-        smoothV2.x = Mathf.Lerp(smoothV2.x, md.x, 1f / smoothing);
-        smoothV2.y = Mathf.Lerp(smoothV2.y, md.y, 1f / smoothing);
+                //Interpolating between the camera's rotation and our actual mouse movements. This is where the smoothing is actually applied to take out the jaggedness
+                //Interpolation is the act of taking a value, such as the distance between where we are currently look and where we should be looking after the mouse movement has been input,
+                //as distributing that values out over a set time-- So instead of going from x=1 to x=20 instantly, we make it go something like x+2 every .2 seconds until x=20. Just as an example
+                //Lerp is short for Linear Interpretation, meaning that the value is changing at a set rate, as opposed to dynamic interpretation where something might start slow then accelerate
+                //until it reaches it's destination.
+                smoothV2.x = Mathf.Lerp(smoothV2.x, md.x, 1f / smoothing);
+                smoothV2.y = Mathf.Lerp(smoothV2.y, md.y, 1f / smoothing);
 
-        //Apply our Lerp'd value to the mouseLook variable for use below
-        mouseLook += smoothV2;
+                //Apply our Lerp'd value to the mouseLook variable for use below
+                mouseLook += smoothV2;
 
-        //Finally, we apply all of our variable/Lerping to rotate the camera as we move our mouse. Not entirely sure why it's -mouse look, but this is giving us the angle of rotation for the cam
-        transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+                //Finally, we apply all of our variable/Lerping to rotate the camera as we move our mouse. Not entirely sure why it's -mouse look, but this is giving us the angle of rotation for the cam
+                transform.localRotation = Quaternion.AngleAxis(-mouseLook.y , Vector3.right);
 
-        //Then we apply that rotation to the player as well. In the Unity editor we have the Y rotation locked so we shouldn't have the player rotating around off of the ground(hopefully)
-        playerGO.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, playerGO.transform.up);
+                //Then we apply that rotation to the player as well. In the Unity editor we have the Y rotation locked so we shouldn't have the player rotating around off of the ground(hopefully)
+                // & we are setting the y angle to Up which is 0,1, not a variable that changes w/ the mouse movement
+                playerGO.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, playerGO.transform.up);*/
+
+
+
+        //I couldn't figure out how to get CLAMPing to work w/ the previous code to keep the player from doing a 360 backflip so I switched over to this code. I kept the previous code 
+        //so you all can still look at the commenting to see how things generally work
+        rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+        transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        playerGO.transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
     }
 }
