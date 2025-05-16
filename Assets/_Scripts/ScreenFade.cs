@@ -28,8 +28,6 @@ public class ScreenFade : MonoBehaviour
         {
             Fade();
         }
-        Debug.Log(currentAlpha);
-        Debug.Log(desiredAlpha);
     }
 
     void Fade()

@@ -32,9 +32,8 @@ public class PlayerCont : MonoBehaviour
         //Testing for now
         horInput = Input.GetAxis("Horizontal");
         vertInput = Input.GetAxis("Vertical");
-        Vector3 moveDirection = new Vector3(horInput, 0, vertInput).normalized;
-        Vector3 movement = moveDirection * speed * Time.deltaTime;
-        transform.Translate(movement);
+
+        transform.Translate(horInput * Time.deltaTime * speed, 0, vertInput * speed * Time.deltaTime);
 
 
         //We used Update to get the players Inputs then we pass those values to FixedUpdate where physics are handled.
