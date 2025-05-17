@@ -12,6 +12,8 @@ namespace CameraDoorScript
 		public GameObject text;
 		TMP_Text textText;
 		string doorText = "Open Door";
+		string sandwichText = "Make Sandwich";
+
 		// Use this for initialization
 		void Start()
 		{
@@ -32,6 +34,17 @@ namespace CameraDoorScript
 
 					if (Input.GetKeyDown(KeyCode.E)) //If Player presses E on Door, run door script OpenDoor()
 						hit.transform.GetComponent<DoorScript.Door>().OpenDoor();
+				}
+				//Check if sandwich script is attached to GO
+				else if (hit.transform.GetComponent<SandwichGame>())
+				{
+					textText.SetText(sandwichText);
+					text.SetActive(true);
+
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						//Make mouse visible, make player unable to move, and run sandwich
+					}
 				}
 				else
 				{
