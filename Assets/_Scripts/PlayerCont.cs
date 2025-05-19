@@ -14,6 +14,8 @@ public class PlayerCont : MonoBehaviour
     private float horInput;
     private float vertInput;
 
+    public bool playerCanMove = true;
+
     private void Start()
     {
         //Hides cursor on game start
@@ -33,7 +35,11 @@ public class PlayerCont : MonoBehaviour
         horInput = Input.GetAxis("Horizontal");
         vertInput = Input.GetAxis("Vertical");
 
-        transform.Translate(horInput * Time.deltaTime * speed, 0, vertInput * speed * Time.deltaTime);
+        if (playerCanMove)
+        {
+            transform.Translate(horInput * Time.deltaTime * speed, 0, vertInput * speed * Time.deltaTime);
+        }
+        
 
 
         //We used Update to get the players Inputs then we pass those values to FixedUpdate where physics are handled.

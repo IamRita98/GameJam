@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseCamControl : MonoBehaviour
-{ 
+{
+    PlayerCont playerCont;
+
     //variables for mouse control
     public float mouseSens;
     public float smoothing;
@@ -36,6 +38,8 @@ public class MouseCamControl : MonoBehaviour
         // playerGO = GameObject.FindGameObjectWithTag("ExampleTag"); Tags are set on a GameObject at the very top of the inspector, this is also where you set the physics layer.
         //However, in this case, our Camera is a child of our player GO in the hierarchy, so we can reference it in another way:
         playerGO = this.transform.parent.gameObject;
+
+        playerCont = playerGO.GetComponent<PlayerCont>();
     }
 
     private void Update()
@@ -72,9 +76,13 @@ public class MouseCamControl : MonoBehaviour
 
         //I couldn't figure out how to get CLAMPing to work w/ the previous code to keep the player from doing a 360 backflip so I switched over to this code. I kept the previous code 
         //so you all can still look at the commenting to see how things generally work
-        rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-        transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-        playerGO.transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        if (playerCont.playerCanMove)
+        {
+            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+            transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            playerGO.transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        }
+        
     }
 }

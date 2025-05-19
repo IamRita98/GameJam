@@ -14,10 +14,13 @@ namespace CameraDoorScript
 		string doorText = "Open Door";
 		string sandwichText = "Make Sandwich";
 
+		GameManager gameManager;
+
 		// Use this for initialization
 		void Start()
 		{
 			textText = text.GetComponent<TMP_Text>();
+			gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 		}
 
 		// Update is called once per frame
@@ -36,14 +39,14 @@ namespace CameraDoorScript
 						hit.transform.GetComponent<DoorScript.Door>().OpenDoor();
 				}
 				//Check if sandwich script is attached to GO
-				else if (hit.transform.GetComponent<SandwichGame>())
+				else if (hit.transform.GetComponent<SandwichGame>() && gameManager.sandwichMade == false)
 				{
 					textText.SetText(sandwichText);
 					text.SetActive(true);
 
 					if (Input.GetKeyDown(KeyCode.E))
 					{
-						//Make mouse visible, make player unable to move, and run sandwich
+						hit.transform.GetComponent<SandwichGame>().StartSandwichGame();
 					}
 				}
 				else
