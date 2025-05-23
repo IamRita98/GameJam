@@ -19,14 +19,12 @@ public class WashingMachineGame : MonoBehaviour
     public void StartWashingMachineGame()
     {
         playerCont.playerCanMove = false;
-        Cursor.lockState = CursorLockMode.Confined;
         washingMachineUI.SetActive(true);
     }
 
     public void EndWashingMachineGame()
     {
         playerCont.playerCanMove = true;
-        Cursor.lockState = CursorLockMode.Locked;
         washingMachineUI.SetActive(false);
         gManage.washingMachineStarted = true;
     }
