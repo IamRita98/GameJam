@@ -13,14 +13,17 @@ namespace CameraDoorScript
 		TMP_Text textText;
 		string doorText = "Open Door";
 		string sandwichText = "Make Sandwich";
+		string washingMachineText = "Start Washing Machine";
 
 		GameManager gameManager;
+		PlayerCont playerCont;
 
 		// Use this for initialization
 		void Start()
 		{
 			textText = text.GetComponent<TMP_Text>();
 			gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+			playerCont = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCont>();
 		}
 
 		// Update is called once per frame
@@ -30,7 +33,7 @@ namespace CameraDoorScript
 			if (Physics.Raycast(transform.position, transform.forward, out hit, DistanceOpen))
 			{
 				//Check if what was hit by Raycast has the Door script, if it does set the text 
-				if (hit.transform.GetComponent<DoorScript.Door>())
+				if (hit.transform.GetComponent<DoorScript.Door>() && playerCont.playerCanMove)
 				{
 					textText.SetText(doorText);
 					text.SetActive(true);
@@ -38,8 +41,9 @@ namespace CameraDoorScript
 					if (Input.GetKeyDown(KeyCode.E)) //If Player presses E on Door, run door script OpenDoor()
 						hit.transform.GetComponent<DoorScript.Door>().OpenDoor();
 				}
+
 				//Check if sandwich script is attached to GO
-				else if (hit.transform.GetComponent<SandwichGame>() && gameManager.sandwichMade == false)
+				else if (hit.transform.GetComponent<SandwichGame>() && gameManager.sandwichMade == false && playerCont.playerCanMove)
 				{
 					textText.SetText(sandwichText);
 					text.SetActive(true);
@@ -49,6 +53,18 @@ namespace CameraDoorScript
 						hit.transform.GetComponent<SandwichGame>().StartSandwichGame();
 					}
 				}
+
+				else if (hit.transform.GetComponent<WashingMachineGame>() && gameManager.washingMachineStarted == false && playerCont.playerCanMove)
+				{
+					textText.SetText(washingMachineText);
+					text.SetActive(true);
+
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						hit.transform.GetComponent<WashingMachineGame>().StartWashingMachineGame();
+					}
+				}
+
 				else
 				{
 					text.SetActive(false);
