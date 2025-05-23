@@ -14,6 +14,7 @@ namespace CameraDoorScript
 		string doorText = "Open Door";
 		string sandwichText = "Make Sandwich";
 		string washingMachineText = "Start Washing Machine";
+		string lightSwitchText = "Flip Switch";
 
 		GameManager gameManager;
 		PlayerCont playerCont;
@@ -62,6 +63,17 @@ namespace CameraDoorScript
 					if (Input.GetKeyDown(KeyCode.E))
 					{
 						hit.transform.GetComponent<WashingMachineGame>().StartWashingMachineGame();
+					}
+				}
+
+				else if (hit.transform.GetComponent<LightSwitchController>() && playerCont.playerCanMove)
+				{
+					textText.SetText(lightSwitchText);
+					text.SetActive(true);
+
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						hit.transform.GetComponent<LightSwitchController>().ToggleLightSwitch();
 					}
 				}
 
