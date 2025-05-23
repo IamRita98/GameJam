@@ -17438,6 +17438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Washer_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1007915736199612682, guid: aed32ad18d6ab3b46ad4d4566cbdf85e, type: 3}
+      propertyPath: m_TagString
+      value: WashingMachineGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
