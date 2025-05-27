@@ -8,6 +8,7 @@ TagManager:
   - SandwichGame
   - WashingMachineGame
   - Fade
+  - WashingMachineSFX
   layers:
   - Default
   - TransparentFX
