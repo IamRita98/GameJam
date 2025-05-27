@@ -15,6 +15,7 @@ namespace CameraDoorScript
 		string sandwichText = "Make Sandwich";
 		string washingMachineText = "Start Washing Machine";
 		string lightSwitchText = "Flip Switch";
+		string bedTimeText = "Go to Bed";
 
 		GameManager gameManager;
 		PlayerCont playerCont;
@@ -74,6 +75,17 @@ namespace CameraDoorScript
 					if (Input.GetKeyDown(KeyCode.E))
 					{
 						hit.transform.GetComponent<LightSwitchController>().ToggleLightSwitch();
+					}
+				}
+
+				else if (hit.transform.GetComponent<BedTime>() && playerCont.playerCanMove && gameManager.ReadyToSleep())
+				{
+					textText.SetText(bedTimeText);
+					text.SetActive(true);
+
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						hit.transform.GetComponent<BedTime>().Sleep();
 					}
 				}
 

@@ -9,6 +9,7 @@ public class SandwichParts : MonoBehaviour, IPointerClickHandler
     static int partsTouching = 0;
     SandwichGame sandwichGame;
 
+    public AudioSource sandwichSlapSFX;
 
     private void Start()
     {
@@ -27,5 +28,6 @@ public class SandwichParts : MonoBehaviour, IPointerClickHandler
     {
         transform.localPosition = Vector3.zero;
         partsTouching++;
+        sandwichSlapSFX.Play();
     }
 }

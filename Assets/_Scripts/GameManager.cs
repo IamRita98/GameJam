@@ -9,4 +9,17 @@ public class GameManager : MonoBehaviour
     public bool sandwichMade = false;
     public bool slidingPuzzleSolved = false;
     public bool washingMachineStarted = false;
+
+    public bool ReadyToSleep ()
+    {
+        if(sandwichMade && slidingPuzzleSolved && washingMachineStarted)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

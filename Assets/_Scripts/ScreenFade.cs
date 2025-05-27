@@ -30,7 +30,7 @@ public class ScreenFade : MonoBehaviour
         }
     }
 
-    void Fade()
+    public void Fade()
     {
         startFading = false;
         if(currentAlpha == 0)

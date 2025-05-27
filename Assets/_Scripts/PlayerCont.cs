@@ -16,10 +16,14 @@ public class PlayerCont : MonoBehaviour
 
     public bool playerCanMove = true;
 
+    public AudioSource walkSFX;
+
     private void Start()
     {
         //Hides cursor on game start
         Cursor.lockState = CursorLockMode.Locked;
+
+        walkSFX.Play();
     }
 
     private void Update()
@@ -40,7 +44,14 @@ public class PlayerCont : MonoBehaviour
             transform.Translate(horInput * Time.deltaTime * speed, 0, vertInput * speed * Time.deltaTime);
         }
         
-
+        if(horInput != 0 || vertInput != 0)
+        {
+            walkSFX.UnPause();
+        }
+        else
+        {
+            walkSFX.Pause();
+        }
 
         //We used Update to get the players Inputs then we pass those values to FixedUpdate where physics are handled.
 
