@@ -5,12 +5,15 @@ using UnityEngine;
 public class KnobControl : MonoBehaviour
 {
     WashingMachineGame wmGame;
+    WashingMachineSFX wmSFX;
+    
     float speed = 30;
     float timerLength = .35f;
 
     private void Start()
     {
         wmGame = GameObject.FindGameObjectWithTag("WashingMachineGame").GetComponent<WashingMachineGame>();
+        wmSFX = GameObject.FindGameObjectWithTag("WashingMachineSFX").GetComponent<WashingMachineSFX>();
     }
 
     void Update()
@@ -28,6 +31,7 @@ public class KnobControl : MonoBehaviour
         if(timerLength <= 0f)
         {
             wmGame.EndWashingMachineGame();
+            wmSFX.WashingMachineSound();
         }
     }
 }

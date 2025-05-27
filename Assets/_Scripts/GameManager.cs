@@ -22,4 +22,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void NewDay()
+    {
+        sandwichMade = false;
+        slidingPuzzleSolved = false;
+        washingMachineStarted = false;
+        currentDay++;
+    }
 }
