@@ -8,6 +8,7 @@ public class WashingMachineGame : MonoBehaviour
     GameManager gManage;
     GameObject plyr;
     public GameObject washingMachineUI;
+    bool washingMachineGameIsActive;
 
     private void Start()
     {
@@ -16,10 +17,19 @@ public class WashingMachineGame : MonoBehaviour
         gManage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
+    private void Update()
+    {
+        if (washingMachineGameIsActive && Input.GetKeyDown(KeyCode.Escape))
+        {
+            CloseWashingMachineGame();
+        }
+    }
+
     public void StartWashingMachineGame()
     {
         playerCont.playerCanMove = false;
         washingMachineUI.SetActive(true);
+        washingMachineGameIsActive = true;
     }
 
     public void EndWashingMachineGame()
@@ -27,5 +37,11 @@ public class WashingMachineGame : MonoBehaviour
         playerCont.playerCanMove = true;
         washingMachineUI.SetActive(false);
         gManage.washingMachineStarted = true;
+    }
+
+    private void CloseWashingMachineGame()
+    {
+        playerCont.playerCanMove = true;
+        washingMachineUI.SetActive(false);
     }
 }

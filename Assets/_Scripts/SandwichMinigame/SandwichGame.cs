@@ -16,10 +16,20 @@ public class SandwichGame : MonoBehaviour
 
     public int sandwichPartsStacked = 0;
 
+    public bool sandwichGameIsActive;
+
     private void Start()
     {
         playerCont = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCont>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
+
+    private void Update()
+    {
+        if(sandwichGameIsActive && Input.GetKeyDown(KeyCode.Escape))
+        {
+            CloseSandwichGame();
+        }
     }
 
     public void StartSandwichGame()
@@ -28,6 +38,7 @@ public class SandwichGame : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         sandwichUI.SetActive(true);
         SetComponentsActive();
+        sandwichGameIsActive = true;
     }
 
     public void EndSandwichGame()
@@ -38,6 +49,13 @@ public class SandwichGame : MonoBehaviour
         gameManager.sandwichMade = true;
         SetComponentsInactive();
         sandwichPartsStacked = 0;
+    }
+
+    public void CloseSandwichGame()
+    {
+        playerCont.playerCanMove = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        sandwichUI.SetActive(false);
     }
 
     private void SetComponentsActive()
