@@ -31,6 +31,7 @@ public class BedTime : MonoBehaviour
         playerCont.playerCanMove = false;
         StartCoroutine(FadeOutThenIn());
         gManager.NewDay();
+        yawnHasPlayed = false;
     }
 
     IEnumerator FadeOutThenIn()

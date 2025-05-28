@@ -21,6 +21,7 @@ public class SandwichParts : MonoBehaviour, IPointerClickHandler
         if(partsTouching == 5)
         {
             sandwichGame.EndSandwichGame();
+            partsTouching = 0;
         }
     }
 
