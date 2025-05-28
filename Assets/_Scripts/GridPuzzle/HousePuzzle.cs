@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class HousePuzzle : MonoBehaviour
 {
-
+/*
     public Transform[] pieces;
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,6 @@ public class HousePuzzle : MonoBehaviour
     private void OnPieceClicked(GameObject piece)
     {
 
-    }
+    }*/
 }
 
