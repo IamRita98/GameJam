@@ -8,6 +8,7 @@ public class SandwichParts : MonoBehaviour, IPointerClickHandler
 {
     static int partsTouching = 0;
     SandwichGame sandwichGame;
+    bool partHasBeenMoved = false;
 
     public AudioSource sandwichSlapSFX;
 
@@ -27,6 +28,8 @@ public class SandwichParts : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
+        if (partHasBeenMoved) return;
+        partHasBeenMoved = true;
         transform.localPosition = Vector3.zero;
         partsTouching++;
         sandwichSlapSFX.Play();
