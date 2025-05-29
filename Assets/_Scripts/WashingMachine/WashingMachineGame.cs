@@ -7,7 +7,7 @@ public class WashingMachineGame : MonoBehaviour
     PlayerCont playerCont;
     GameManager gManage;
     GameObject plyr;
-    public GameObject washingMachineUI;
+    public GameObject[] washingMachineUI;
     bool washingMachineGameIsActive;
 
     private void Start()
@@ -28,20 +28,20 @@ public class WashingMachineGame : MonoBehaviour
     public void StartWashingMachineGame()
     {
         playerCont.playerCanMove = false;
-        washingMachineUI.SetActive(true);
+        washingMachineUI[gManage.currentDay - 1].SetActive(true);
         washingMachineGameIsActive = true;
     }
 
     public void EndWashingMachineGame()
     {
         playerCont.playerCanMove = true;
-        washingMachineUI.SetActive(false);
+        washingMachineUI[gManage.currentDay - 1].SetActive(false);
         gManage.washingMachineStarted = true;
     }
 
     private void CloseWashingMachineGame()
     {
         playerCont.playerCanMove = true;
-        washingMachineUI.SetActive(false);
+        washingMachineUI[gManage.currentDay - 1].SetActive(false);
     }
 }
