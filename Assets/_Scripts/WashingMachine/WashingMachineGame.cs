@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WashingMachineGame : MonoBehaviour
 {
@@ -10,11 +11,14 @@ public class WashingMachineGame : MonoBehaviour
     public GameObject[] washingMachineUI;
     bool washingMachineGameIsActive;
 
+    public Button btn;
+
     private void Start()
     {
         plyr = GameObject.FindGameObjectWithTag("Player");
         playerCont = plyr.GetComponent<PlayerCont>();
         gManage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        btn.onClick.AddListener(EndWashingMachineGame);
     }
 
     private void Update()
