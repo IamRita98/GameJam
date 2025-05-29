@@ -10,15 +10,11 @@ public class WashingMachineGame : MonoBehaviour
     GameObject plyr;
     public GameObject[] washingMachineUI;
     bool washingMachineGameIsActive;
-
-    public Button btn;
-
     private void Start()
     {
         plyr = GameObject.FindGameObjectWithTag("Player");
         playerCont = plyr.GetComponent<PlayerCont>();
         gManage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        btn.onClick.AddListener(EndWashingMachineGame);
     }
 
     private void Update()
@@ -34,6 +30,10 @@ public class WashingMachineGame : MonoBehaviour
         playerCont.playerCanMove = false;
         washingMachineUI[gManage.currentDay - 1].SetActive(true);
         washingMachineGameIsActive = true;
+        if(gManage.currentDay == 3)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 
     public void EndWashingMachineGame()
@@ -41,11 +41,19 @@ public class WashingMachineGame : MonoBehaviour
         playerCont.playerCanMove = true;
         washingMachineUI[gManage.currentDay - 1].SetActive(false);
         gManage.washingMachineStarted = true;
+        if(gManage.currentDay == 3)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     private void CloseWashingMachineGame()
     {
         playerCont.playerCanMove = true;
         washingMachineUI[gManage.currentDay - 1].SetActive(false);
+        if (gManage.currentDay == 3)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }

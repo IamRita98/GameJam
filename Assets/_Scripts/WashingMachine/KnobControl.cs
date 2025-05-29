@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
+using UnityEngine.UI;
 public class KnobControl : MonoBehaviour
 {
     WashingMachineGame wmGame;
@@ -20,7 +21,10 @@ public class KnobControl : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(new Vector3(0,0, Input.GetAxis("Mouse X")) * Time.deltaTime * speed);
+        if(gManager.currentDay != 3)
+        {
+            transform.Rotate(new Vector3(0, 0, Input.GetAxis("Mouse X")) * Time.deltaTime * speed);
+        }
         if(transform.eulerAngles.z >= 260f && transform.eulerAngles.z <= 275f && gManager.currentDay == 1)
         {
             timerLength -= Time.deltaTime;
@@ -39,5 +43,11 @@ public class KnobControl : MonoBehaviour
             wmGame.EndWashingMachineGame();
             wmSFX.WashingMachineSound();
         }
+    }
+
+    private void OnMouseDown()
+    {
+        wmGame.EndWashingMachineGame();
+        wmSFX.WashingMachineSound();
     }
 }
