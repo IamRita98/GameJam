@@ -10,6 +10,20 @@ public class GameManager : MonoBehaviour
     public bool slidingPuzzleSolved = false;
     public bool washingMachineStarted = false;
 
+    public bool isInDevTool;
+    DevMenu devMenu;
+
+    private void Start()
+    {
+        devMenu = GameObject.FindGameObjectWithTag("Devmenu").GetComponent<DevMenu>();
+    }
+
+    private void Update()
+    {
+        if (devMenu.uiIsActive) isInDevTool = true;
+        else isInDevTool = false;
+    }
+
     public bool ReadyToSleep ()
     {
         if(sandwichMade && slidingPuzzleSolved && washingMachineStarted)

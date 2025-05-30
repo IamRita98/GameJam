@@ -19,12 +19,16 @@ public class PlayerCont : MonoBehaviour
 
     public AudioSource walkSFX;
 
+    GameManager gManage;
+
     private void Start()
     {
         //Hides cursor on game start
         Cursor.lockState = CursorLockMode.Locked;
 
         walkSFX.Play();
+
+        gManage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -61,12 +65,12 @@ public class PlayerCont : MonoBehaviour
         //This turns the cursor back on when the player presses Escape. It's important that we check for inputs in the Update function as it's being checked every frame of the game, as opposed to
         //FixedUpdate which we use for physics as is checked at a consistant rate, unrelated to the computers fps meaning that it could miss the frame that the player pressed an input, however it will
         //always have the physics continuing in those missed frames. You can find a better understanding of these two methods Update & FixedUpdate in the unity Documentation.
-        if (Input.GetKeyDown(KeyCode.Escape) && curserIsLocked && playerCanMove)
+        if (Input.GetKeyDown(KeyCode.Escape) && curserIsLocked && playerCanMove && !gManage.isInDevTool)
         {
             Cursor.lockState = CursorLockMode.None;
             curserIsLocked = false;
         }
-        else if(Input.GetKeyDown(KeyCode.Mouse0) && !curserIsLocked && playerCanMove)
+        else if(Input.GetKeyDown(KeyCode.Mouse0) && !curserIsLocked && playerCanMove && !gManage.isInDevTool)
         {
             Cursor.lockState = CursorLockMode.Locked;
             curserIsLocked = true;

@@ -9,6 +9,7 @@ TagManager:
   - WashingMachineGame
   - Fade
   - WashingMachineSFX
+  - Devmenu
   layers:
   - Default
   - TransparentFX
