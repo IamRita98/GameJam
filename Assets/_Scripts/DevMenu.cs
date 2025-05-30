@@ -17,6 +17,7 @@ public class DevMenu : MonoBehaviour
     public Button studyTPBtn;
     public Button kitchenTPBtn;
     public Button LaundryTPBtn;
+    public Button muteMusic;
 
     GameManager gManage;
 
@@ -24,8 +25,10 @@ public class DevMenu : MonoBehaviour
     public Transform studyTPLocation;
     public Transform kitchenTPLocation;
     public Transform laundryTPLocation;
-    public Transform playerTransform;
+    Transform playerTransform;
 
+    public AudioSource musicPlayer;
+    bool musicIsMuted = false;
     private void Start()
     {
         completeBtn.onClick.AddListener(CompleteAllGames);
@@ -37,9 +40,11 @@ public class DevMenu : MonoBehaviour
         studyTPBtn.onClick.AddListener(MoveToStudy);
         kitchenTPBtn.onClick.AddListener(MoveToKitchen);
         LaundryTPBtn.onClick.AddListener(MoveToLaundry);
+        muteMusic.onClick.AddListener(MuteMusic);
 
         gManage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -108,5 +113,18 @@ public class DevMenu : MonoBehaviour
     void MoveToLaundry()
     {
         playerTransform.position = laundryTPLocation.position;
+    }
+    void MuteMusic()
+    {
+        if (!musicIsMuted)
+        {
+            musicPlayer.volume = 0;
+            musicIsMuted = true;
+        }
+        else if (musicIsMuted)
+        {
+            musicPlayer.volume = .3f;
+            musicIsMuted = false;
+        }
     }
 }
