@@ -6,7 +6,7 @@ public class ReadNote : MonoBehaviour
 {
     public GameObject noteText;
     public GameObject note;
-    bool noteIsActive = false;
+    public bool noteIsActive = false;
     PlayerCont playerCont;
 
     private void Start()
@@ -18,6 +18,7 @@ public class ReadNote : MonoBehaviour
     {
         if(noteIsActive && Input.GetKeyDown(KeyCode.Escape))
         {
+            note.SetActive(false);
             noteText.SetActive(false);
             noteIsActive = false;
             playerCont.playerCanMove = true;
@@ -26,7 +27,7 @@ public class ReadNote : MonoBehaviour
 
     public void ShowNote()
     {
-        note.SetActive(false);
+        
         noteText.SetActive(true);
         noteIsActive = true;
         playerCont.playerCanMove = false;

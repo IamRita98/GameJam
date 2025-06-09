@@ -7111,6 +7111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 341076171}
   - component: {fileID: 341076170}
+  - component: {fileID: 341076172}
   m_Layer: 0
   m_Name: MusicPlayer
   m_TagString: MusicPlayer
@@ -7229,6 +7230,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &341076172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341076169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed69554847a8217458f4c63eb2dd8ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  day1Mus: {fileID: 8300000, guid: 63337ffe89ee2144297eded3fa1281ec, type: 3}
+  day2Mus: {fileID: 8300000, guid: c43d870be6315c74288dfeceecc59c61, type: 3}
+  day3Mus: {fileID: 8300000, guid: b957b67950027354b832b1a43ff1241b, type: 3}
 --- !u!43 &341366380
 Mesh:
   m_ObjectHideFlags: 0
@@ -46512,6 +46528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yawnSFX: {fileID: 2070568806}
+  musicPlayer: {fileID: 341076172}
 --- !u!1 &2075454942
 GameObject:
   m_ObjectHideFlags: 0
