@@ -17,6 +17,7 @@ namespace CameraDoorScript
 		string lightSwitchText = "Flip Switch";
 		string bedTimeText = "Go to Bed";
 		string noteText = "Read Note";
+		string catText = "Pet Cat";
 
 		GameManager gameManager;
 		PlayerCont playerCont;
@@ -98,6 +99,17 @@ namespace CameraDoorScript
 					if (Input.GetKeyDown(KeyCode.E))
 					{
 						hit.transform.GetComponent<ReadNote>().ShowNote();
+					}
+				}
+
+				else if (hit.transform.GetComponent<CatMeow>())
+				{
+					textText.SetText(catText);
+					text.SetActive(true);
+
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						hit.transform.GetComponent<CatMeow>().Meow();
 					}
 				}
 
