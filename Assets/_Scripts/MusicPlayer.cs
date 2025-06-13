@@ -44,7 +44,7 @@ public class MusicPlayer : MonoBehaviour
             startVolume = 0;
             if(gManage.currentDay > 1)
             {
-                destVolume = .23f;
+                destVolume = .2f;
             }
             else
             {

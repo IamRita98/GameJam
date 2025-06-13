@@ -19,8 +19,20 @@ public class ObjectReplacer : MonoBehaviour
     {
         if(gManage.currentDay >= dayToReplaceOn)
         {
-            oldGO.SetActive(false);
-            newGO.SetActive(true);
+            OldGO();
+            NewGO();
         }
+    }
+
+    private void OldGO()
+    {
+        if (oldGO == null) return;
+        oldGO.SetActive(false);
+    }
+
+    private void NewGO()
+    {
+        if (newGO == null) return;
+        newGO.SetActive(true);
     }
 }

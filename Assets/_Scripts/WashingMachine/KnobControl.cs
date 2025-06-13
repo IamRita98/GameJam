@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class KnobControl : MonoBehaviour
+public class KnobControl : MonoBehaviour, IPointerDownHandler
 {
     WashingMachineGame wmGame;
     WashingMachineSFX wmSFX;
@@ -45,7 +46,13 @@ public class KnobControl : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+/*    private void OnMouseDown()
+    {
+        wmGame.EndWashingMachineGame();
+        wmSFX.WashingMachineSound();
+    }
+    */
+    public void OnPointerDown(PointerEventData eventData)
     {
         wmGame.EndWashingMachineGame();
         wmSFX.WashingMachineSound();

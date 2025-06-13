@@ -32,8 +32,6 @@ public class BedTime : MonoBehaviour
         playerCont.playerCanMove = false;
         StartCoroutine(musicPlayer.StartFade(GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<AudioSource>()));
         StartCoroutine(FadeOutThenIn());
-        
-        yawnHasPlayed = false;
     }
 
     IEnumerator FadeOutThenIn()
@@ -41,6 +39,7 @@ public class BedTime : MonoBehaviour
         screenFade.Fade();
         yield return new WaitForSeconds(3);
         gManager.NewDay();
+        yawnHasPlayed = false;
         screenFade.Fade();
         yield return new WaitForSeconds(1);
         StartCoroutine(musicPlayer.StartFade(GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<AudioSource>()));
