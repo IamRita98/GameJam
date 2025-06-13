@@ -5,10 +5,17 @@ using UnityEngine.Events;
 
 public class puzzlePIece : MonoBehaviour
 {
-    public UnityEvent<GameObject> onClicked;
+    public int gridX; // X position in the grid
+    public int gridY; // Y position in the grid
+    public UnityEvent<GameObject> onClick;
 
     private void OnMouseDown()
     {
-        onClicked?.Invoke(gameObject);
+        onClick?.Invoke(gameObject);
+    }
+    private void Awake()
+    {
+        if (onClick == null)
+            onClick = new UnityEvent<GameObject>();
     }
 }

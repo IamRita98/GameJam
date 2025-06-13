@@ -112,6 +112,15 @@ namespace CameraDoorScript
 						hit.transform.GetComponent<CatMeow>().Meow();
 					}
 				}
+				else if (hit.transform.GetComponent<HousePuzzle>()&& playerCont.playerCanMove)
+				{
+					textText.SetText("Solve Puzzle");
+					text.SetActive(true);
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						hit.transform.GetComponent<HousePuzzle>().StartPuzzle();
+                    }
+                }
 
 				else
 				{
