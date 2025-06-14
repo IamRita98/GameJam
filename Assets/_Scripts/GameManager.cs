@@ -14,18 +14,18 @@ public class GameManager : MonoBehaviour
     public GameObject gameEndText;
 
     public bool isInDevTool;
-    DevMenu devMenu;
+    //DevMenu devMenu;
 
     private void Start()
     {
-        devMenu = GameObject.FindGameObjectWithTag("Devmenu").GetComponent<DevMenu>();
+        //devMenu = GameObject.FindGameObjectWithTag("Devmenu").GetComponent<DevMenu>();
         hP = GameObject.FindGameObjectWithTag("slidingPuzzle").GetComponent<HousePuzzle>();
     }
 
     private void Update()
     {
-        if (devMenu.uiIsActive) isInDevTool = true;
-        else isInDevTool = false;
+        //if (devMenu.uiIsActive) isInDevTool = true;
+        //else isInDevTool = false;
         if (currentDay >= 4 && !gameHasEnded)
         {
             EndGame();
