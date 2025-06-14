@@ -7,6 +7,8 @@ public class puzzlePIece : MonoBehaviour
 {
     public int gridX; // X position in the grid
     public int gridY; // Y position in the grid
+    public int correctX; 
+    public int correctY;
     public UnityEvent<GameObject> onClick;
 
     private void OnMouseDown()

@@ -428,8 +428,8 @@ GameObject:
   m_Component:
   - component: {fileID: 20957605}
   - component: {fileID: 20957608}
-  - component: {fileID: 20957607}
   - component: {fileID: 20957606}
+  - component: {fileID: 20957609}
   m_Layer: 0
   m_Name: housePuzzle_4
   m_TagString: Untagged
@@ -466,54 +466,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridX: 1
   gridY: 1
+  correctX: 1
+  correctY: 1
   onClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &20957607
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20957604}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.2666664, y: 4.2666664}
-    newSize: {x: 4.2666664, y: 4.2666664}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.2666664, y: 4.2666664}
-  m_EdgeRadius: 0
 --- !u!212 &20957608
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -566,6 +523,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &20957609
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20957604}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.2666664, y: 4.2666674, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0.00015258789}
 --- !u!43 &24118950
 Mesh:
   m_ObjectHideFlags: 0
@@ -13212,6 +13190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68040e7c995d1f24c95b5c11ed6cd5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraPosition: {fileID: 1161158773}
 --- !u!4 &502807452
 Transform:
   m_ObjectHideFlags: 0
@@ -13220,8 +13199,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502807450}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.0468273, y: 0, z: -20.368}
+  m_LocalRotation: {x: -0.70716995, y: -0, z: -0, w: 0.7070437}
+  m_LocalPosition: {x: -2.177, y: -12.434, z: -20.249}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13235,7 +13214,7 @@ Transform:
   - {fileID: 687501250}
   - {fileID: 2059634739}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!65 &502807453
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13255,8 +13234,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.51547694, y: 0.7628551, z: 0.4444809}
-  m_Center: {x: 0.58, y: 0.7185725, z: 15.9}
+  m_Size: {x: 0.51547694, y: 0.76285386, z: 0.5215281}
+  m_Center: {x: 0.58, y: 0.71857166, z: 15.938523}
 --- !u!1 &504156379
 GameObject:
   m_ObjectHideFlags: 0
@@ -14561,8 +14540,8 @@ GameObject:
   m_Component:
   - component: {fileID: 535814647}
   - component: {fileID: 535814650}
-  - component: {fileID: 535814649}
   - component: {fileID: 535814648}
+  - component: {fileID: 535814651}
   m_Layer: 0
   m_Name: housePuzzle_0
   m_TagString: Untagged
@@ -14599,54 +14578,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridX: 0
   gridY: 2
+  correctX: 0
+  correctY: 2
   onClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &535814649
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535814646}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.2666664, y: 4.2666664}
-    newSize: {x: 4.2666664, y: 4.2666664}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.2666664, y: 4.2666664}
-  m_EdgeRadius: 0
 --- !u!212 &535814650
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14699,6 +14635,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &535814651
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535814646}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.2666664, y: 4.2666674, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0.0001373291}
 --- !u!1001 &561691887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16974,8 +16931,8 @@ GameObject:
   m_Component:
   - component: {fileID: 687501250}
   - component: {fileID: 687501253}
-  - component: {fileID: 687501252}
   - component: {fileID: 687501251}
+  - component: {fileID: 687501254}
   m_Layer: 0
   m_Name: housePuzzle_7
   m_TagString: Untagged
@@ -17012,54 +16969,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridX: 2
   gridY: 1
+  correctX: 2
+  correctY: 1
   onClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &687501252
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687501249}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.2666664, y: 4.2666664}
-    newSize: {x: 4.2666664, y: 4.2666664}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.2666664, y: 4.2666664}
-  m_EdgeRadius: 0
 --- !u!212 &687501253
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17112,6 +17026,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &687501254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687501249}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.2666664, y: 4.2666674, z: 0.20000005}
+  m_Center: {x: 0, y: 0.000061035156, z: 0.00012207031}
 --- !u!1 &697662456
 GameObject:
   m_ObjectHideFlags: 0
@@ -23209,8 +23144,8 @@ GameObject:
   m_Component:
   - component: {fileID: 992188273}
   - component: {fileID: 992188276}
-  - component: {fileID: 992188275}
   - component: {fileID: 992188274}
+  - component: {fileID: 992188277}
   m_Layer: 0
   m_Name: housePuzzle_6
   m_TagString: Untagged
@@ -23247,54 +23182,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridX: 2
   gridY: 2
+  correctX: 2
+  correctY: 2
   onClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &992188275
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992188272}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.2666664, y: 4.2666664}
-    newSize: {x: 4.2666664, y: 4.2666664}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.2666664, y: 4.2666664}
-  m_EdgeRadius: 0
 --- !u!212 &992188276
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23347,6 +23239,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &992188277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992188272}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.2666664, y: 4.2666674, z: 0.20000005}
+  m_Center: {x: 0.0000038146973, y: 0.000061035156, z: 0.00012207031}
 --- !u!1 &994958897
 GameObject:
   m_ObjectHideFlags: 0
@@ -25343,7 +25256,7 @@ Transform:
   m_GameObject: {fileID: 1074522507}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9998708, z: -0, w: 0.016076833}
-  m_LocalPosition: {x: 7.42, y: 0.25, z: -3.58}
+  m_LocalPosition: {x: -1.184, y: 3.963, z: -17.924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27354,6 +27267,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4260433202865913137, guid: 7b03ffef6e614fe4888c1b633e6c6b55, type: 3}
   m_PrefabInstance: {fileID: 1161077862}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1161158773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1161158774}
+  m_Layer: 0
+  m_Name: SliderPuzzleCameraPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1161158774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161158773}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.022251751, y: 0.77972984, z: -0.6256988, w: -0.005223576}
+  m_LocalPosition: {x: -1.656, y: 4.382, z: -20.847}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &1170545887
 GameObject:
   m_ObjectHideFlags: 0
@@ -35892,8 +35836,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1577040395}
   - component: {fileID: 1577040398}
-  - component: {fileID: 1577040397}
   - component: {fileID: 1577040396}
+  - component: {fileID: 1577040399}
   m_Layer: 0
   m_Name: housePuzzle_2
   m_TagString: Untagged
@@ -35930,54 +35874,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridX: 0
   gridY: 0
+  correctX: 0
+  correctY: 0
   onClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &1577040397
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577040394}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.2666664, y: 4.2666664}
-    newSize: {x: 4.2666664, y: 4.2666664}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.2666664, y: 4.2666664}
-  m_EdgeRadius: 0
 --- !u!212 &1577040398
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36030,6 +35931,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1577040399
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577040394}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.2666664, y: 4.2666674, z: 0.20000005}
+  m_Center: {x: 0.0000038146973, y: 0, z: 0.0001373291}
 --- !u!1001 &1587152991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37380,8 +37302,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1625450152}
   - component: {fileID: 1625450155}
-  - component: {fileID: 1625450154}
   - component: {fileID: 1625450153}
+  - component: {fileID: 1625450156}
   m_Layer: 0
   m_Name: housePuzzle_1
   m_TagString: Untagged
@@ -37418,54 +37340,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridX: 0
   gridY: 1
+  correctX: 0
+  correctY: 1
   onClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &1625450154
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625450151}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.2666664, y: 4.2666664}
-    newSize: {x: 4.2666664, y: 4.2666664}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.2666664, y: 4.2666664}
-  m_EdgeRadius: 0
 --- !u!212 &1625450155
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37518,6 +37397,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1625450156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625450151}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.2666664, y: 4.2666674, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0.0001373291}
 --- !u!1 &1628788387
 GameObject:
   m_ObjectHideFlags: 0
@@ -40901,8 +40801,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1734041446}
   - component: {fileID: 1734041449}
-  - component: {fileID: 1734041448}
   - component: {fileID: 1734041447}
+  - component: {fileID: 1734041450}
   m_Layer: 0
   m_Name: housePuzzle_5
   m_TagString: Untagged
@@ -40939,54 +40839,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridX: 1
   gridY: 0
+  correctX: 1
+  correctY: 0
   onClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &1734041448
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734041445}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.2666664, y: 4.2666664}
-    newSize: {x: 4.2666664, y: 4.2666664}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.2666664, y: 4.2666664}
-  m_EdgeRadius: 0
 --- !u!212 &1734041449
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41039,6 +40896,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1734041450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734041445}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.2666664, y: 4.2666674, z: 0.20000005}
+  m_Center: {x: 0.0000038146973, y: 0, z: 0.00015258789}
 --- !u!1 &1744441732
 GameObject:
   m_ObjectHideFlags: 0
@@ -48189,8 +48067,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2051029542}
   - component: {fileID: 2051029545}
-  - component: {fileID: 2051029544}
   - component: {fileID: 2051029543}
+  - component: {fileID: 2051029546}
   m_Layer: 0
   m_Name: housePuzzle_3
   m_TagString: Untagged
@@ -48227,54 +48105,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridX: 1
   gridY: 2
+  correctX: 1
+  correctY: 2
   onClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &2051029544
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051029541}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.2666664, y: 4.2666664}
-    newSize: {x: 4.2666664, y: 4.2666664}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.2666664, y: 4.2666664}
-  m_EdgeRadius: 0
 --- !u!212 &2051029545
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48327,6 +48162,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &2051029546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051029541}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.2666664, y: 4.2666674, z: 0.20000005}
+  m_Center: {x: 0.0000038146973, y: 0, z: 0.00015258789}
 --- !u!43 &2052832313
 Mesh:
   m_ObjectHideFlags: 0
@@ -48502,8 +48358,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2059634739}
   - component: {fileID: 2059634742}
-  - component: {fileID: 2059634741}
   - component: {fileID: 2059634740}
+  - component: {fileID: 2059634743}
   m_Layer: 0
   m_Name: housePuzzle_8
   m_TagString: Untagged
@@ -48540,54 +48396,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridX: 2
   gridY: 0
+  correctX: 2
+  correctY: 0
   onClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!61 &2059634741
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059634738}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.2666664, y: 4.2666664}
-    newSize: {x: 4.2666664, y: 4.2666664}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.2666664, y: 4.2666664}
-  m_EdgeRadius: 0
 --- !u!212 &2059634742
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48640,6 +48453,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &2059634743
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059634738}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.2666664, y: 4.2666674, z: 0.20000005}
+  m_Center: {x: 0.0000038146973, y: 0.000061035156, z: 0.00012207031}
 --- !u!1001 &2066848349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50671,3 +50505,4 @@ SceneRoots:
   - {fileID: 1875839539}
   - {fileID: 1017700510}
   - {fileID: 502807452}
+  - {fileID: 1161158774}

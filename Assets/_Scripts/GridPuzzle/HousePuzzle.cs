@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 
 using System.Linq;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,11 +17,14 @@ public class HousePuzzle : MonoBehaviour
     bool correctSwap = false;
     bool hasBeenSwapped = false;
     private bool isSwapping = false;
+    public GameObject cameraPosition;
+    GameObject mainCam;
 
     void Start()
 {
     playerCont = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCont>();
     gManage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    mainCam = GameObject.FindGameObjectWithTag("MainCamera");
         foreach (Transform child in transform)
         {
             puzzlePIece piece = child.GetComponent<puzzlePIece>();
@@ -119,24 +123,24 @@ public void ClosePuzzleGame()
 {
     playerCont.playerCanMove = true;
     Cursor.lockState = CursorLockMode.Locked;
-    //washingMachineUI[gManage.currentDay - 1].SetActive(false);
-    //gManage.washingMachineStarted = true;
-    //if (gManage.currentDay == 3)
-    //{
-    //    Cursor.lockState = CursorLockMode.Locked;
-    //}
+    
 }
-// Start is called before the first frame update
+public void FinishPuzzleGame() 
+{
+    playerCont.playerCanMove = true;
+    Cursor.lockState = CursorLockMode.Locked;
+    gManage.slidingPuzzleSolved = true;
+}
 public void StartPuzzle()
     {
 
         HousePuzzleIsActive = true;
         playerCont.playerCanMove = false;
         Cursor.lockState = CursorLockMode.Confined;
-        
-        
-
+        mainCam.transform.position=cameraPosition.transform.position;
+        mainCam.transform.rotation = cameraPosition.transform.rotation;
     }
+    
     public void OnPieceClicked(GameObject pieceClicked)
     {
         if (isSwapping) return;
@@ -234,6 +238,10 @@ public void StartPuzzle()
         b.transform.position = aStart;
         yield return new WaitForSeconds(duration);
         isSwapping = false;
+        if (CheckWinCondition()) 
+        { 
+            FinishPuzzleGame();
+        }
     }
     bool isAdjacent(puzzlePIece piece1,puzzlePIece piece2)
     {
@@ -242,6 +250,19 @@ public void StartPuzzle()
         int dx = Mathf.Abs(piece1.gridX - piece2.gridX);
         int dy = Mathf.Abs(piece1.gridY - piece2.gridY);
         return (dx + dy) == 1;
+    }
+    private bool CheckWinCondition()    
+    {
+        foreach (Transform child in transform)
+        {
+            puzzlePIece piece = child.GetComponent<puzzlePIece>();
+            if(piece.gridX!=piece.correctX || piece.gridY != piece.correctY)
+            {
+                return false;
+            }
+            
+        }
+        return true;//All pieces are in correct position
     }
 }
 
