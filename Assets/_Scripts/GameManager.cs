@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public bool sandwichMade = false;
     public bool slidingPuzzleSolved = false;
     public bool washingMachineStarted = false;
+    public bool gameHasEnded = false;
+    public GameObject fadeScreen;
+    public GameObject gameEndText;
 
     public bool isInDevTool;
     DevMenu devMenu;
@@ -23,6 +26,10 @@ public class GameManager : MonoBehaviour
     {
         if (devMenu.uiIsActive) isInDevTool = true;
         else isInDevTool = false;
+        if (currentDay >= 4 && !gameHasEnded)
+        {
+            EndGame();
+        }
     }
 
     public bool ReadyToSleep ()
@@ -44,5 +51,13 @@ public class GameManager : MonoBehaviour
         washingMachineStarted = false;
         currentDay++;
         hP.cSprites();
+    }
+
+    private void EndGame()
+    {
+        gameHasEnded = true;
+        CanvasGroup fader = fadeScreen.GetComponent<CanvasGroup>();
+        fader.alpha = 1;
+        gameEndText.SetActive(true);
     }
 }

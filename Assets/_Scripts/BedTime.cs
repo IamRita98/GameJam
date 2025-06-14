@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BedTime : MonoBehaviour
@@ -10,6 +11,8 @@ public class BedTime : MonoBehaviour
     ScreenFade screenFade;
     bool yawnHasPlayed = false;
     public MusicPlayer musicPlayer;
+    public TMP_Text text;
+    public GameObject textGO;
 
     private void Start()
     {
@@ -24,6 +27,7 @@ public class BedTime : MonoBehaviour
         {
             yawnSFX.Play();
             yawnHasPlayed = true;
+            StartCoroutine(SleepTimeText());
         }
     }
 
@@ -34,16 +38,27 @@ public class BedTime : MonoBehaviour
         StartCoroutine(FadeOutThenIn());
     }
 
+    IEnumerator SleepTimeText()
+    {
+        textGO.SetActive(true);
+        text.SetText("I'm so sleepy...");
+        yield return new WaitForSeconds(3);
+        textGO.SetActive(false);
+    }
+
     IEnumerator FadeOutThenIn()
     {
         screenFade.Fade();
         yield return new WaitForSeconds(3);
         gManager.NewDay();
         yawnHasPlayed = false;
-        screenFade.Fade();
-        yield return new WaitForSeconds(1);
-        StartCoroutine(musicPlayer.StartFade(GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<AudioSource>()));
-        playerCont.playerCanMove = true;
+        if(gManager.currentDay < 4)
+        {
+            screenFade.Fade();
+            yield return new WaitForSeconds(1);
+            StartCoroutine(musicPlayer.StartFade(GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<AudioSource>()));
+            playerCont.playerCanMove = true;
+        }
     }
     
 }
