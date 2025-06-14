@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int currentDay = 1;
-
+    HousePuzzle hP;
     public bool sandwichMade = false;
     public bool slidingPuzzleSolved = false;
     public bool washingMachineStarted = false;
@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         devMenu = GameObject.FindGameObjectWithTag("Devmenu").GetComponent<DevMenu>();
+        hP = GameObject.FindGameObjectWithTag("slidingPuzzle").GetComponent<HousePuzzle>();
     }
 
     private void Update()
@@ -42,5 +43,6 @@ public class GameManager : MonoBehaviour
         slidingPuzzleSolved = false;
         washingMachineStarted = false;
         currentDay++;
+        hP.cSprites();
     }
 }

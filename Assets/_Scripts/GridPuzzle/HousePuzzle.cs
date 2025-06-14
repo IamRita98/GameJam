@@ -15,13 +15,17 @@ public class HousePuzzle : MonoBehaviour
     PlayerCont playerCont;
     bool HousePuzzleIsActive = false;
     bool correctSwap = false;
-    bool hasBeenSwapped = false;
+    public bool hasBeenSwapped = false;
     private bool isSwapping = false;
     public GameObject cameraPosition;
     GameObject mainCam;
+    Vector3 originalCam;
+    bool checkForSwap = true;
+    piecesReplacer replacer;
 
     void Start()
 {
+    replacer = GameObject.FindGameObjectWithTag("sliderHolderTag").GetComponent<piecesReplacer>(); ;
     playerCont = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCont>();
     gManage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     mainCam = GameObject.FindGameObjectWithTag("MainCamera");
@@ -35,101 +39,114 @@ public class HousePuzzle : MonoBehaviour
             }
 
         }
-        
+        if (gManage.currentDay == 1 && hasBeenSwapped == false)
+        {
+            puzzlePIece a = grid[0, 0];
+            puzzlePIece b = grid[1, 0];
+
+            int tempX = a.gridX;
+            int tempY = a.gridY;
+
+            a.gridX = b.gridX;
+            a.gridY = b.gridY;
+
+            b.gridX = tempX;
+            b.gridY = tempY;
+
+            // Update grid array
+            grid[a.gridX, a.gridY] = a;
+            grid[b.gridX, b.gridY] = b;
+            Vector3 tempPos = grid[0, 0].transform.position;
+            grid[0, 0].transform.position = grid[1, 0].transform.position;
+            grid[1, 0].transform.position = tempPos;
+            hasBeenSwapped = true;
+        }
+        if (gManage.currentDay == 2 && hasBeenSwapped == false)
+        {
+            puzzlePIece a = grid[2, 2];
+            puzzlePIece b = grid[2, 1];
+
+            int tempX = a.gridX;
+            int tempY = a.gridY;
+
+            a.gridX = b.gridX;
+            a.gridY = b.gridY;
+
+            b.gridX = tempX;
+            b.gridY = tempY;
+
+            // Update grid array
+            grid[a.gridX, a.gridY] = a;
+            grid[b.gridX, b.gridY] = b;
+            //swap pieces 2,2 and 2,1
+            Vector3 tempPos = grid[2, 2].transform.position;
+            grid[2, 2].transform.position = grid[2, 1].transform.position;
+            grid[2, 1].transform.position = tempPos;
+            hasBeenSwapped = true;
+        }
+        if (gManage.currentDay == 3 && hasBeenSwapped == false)
+        {
+            puzzlePIece a = grid[1, 1];
+            puzzlePIece b = grid[1, 2];
+
+            int tempX = a.gridX;
+            int tempY = a.gridY;
+
+            a.gridX = b.gridX;
+            a.gridY = b.gridY;
+
+            b.gridX = tempX;
+            b.gridY = tempY;
+
+            // Update grid array
+            grid[a.gridX, a.gridY] = a;
+            grid[b.gridX, b.gridY] = b;
+            //swap pieces 1,1 and 1,2
+            Vector3 tempPos = grid[1, 1].transform.position;
+            grid[1, 1].transform.position = grid[1, 2].transform.position;
+            grid[1, 2].transform.position = tempPos;
+            hasBeenSwapped = true;
+        }
+
     }
+    public void cSprites() {
+        
+        replacer.changeSprites();
+        hasBeenSwapped = false;  
+    }
+    
 private void Update() {
     if (HousePuzzleIsActive && Input.GetKeyDown(KeyCode.Escape))
     {
         ClosePuzzleGame();
     }
-    //swap specific pieces on certain days for player to solve
-    if (gManage.currentDay == 1&&hasBeenSwapped==false)
-    {
-        puzzlePIece a = grid[0, 0];
-        puzzlePIece b = grid[1, 0];
-        
-        int tempX = a.gridX;
-        int tempY = a.gridY;
-
-        a.gridX = b.gridX;
-        a.gridY = b.gridY;
-
-        b.gridX = tempX;
-        b.gridY = tempY;
-
-        // Update grid array
-        grid[a.gridX, a.gridY] = a;
-        grid[b.gridX, b.gridY] = b;
-        Vector3 tempPos = grid[0, 0].transform.position;
-        grid[0, 0].transform.position = grid[1, 0].transform.position;
-        grid[1, 0].transform.position = tempPos;
-        hasBeenSwapped = true;
-
-
-
+        //swap specific pieces on certain days for player to solve
+    
+        if (selectedPieces.Count >= 3)
+        {
+            selectedPieces.Clear();
         }
-    if (gManage.currentDay == 2 && hasBeenSwapped == false)
-    {
-        puzzlePIece a = grid[2, 2];
-        puzzlePIece b = grid[2, 1];
 
-        int tempX = a.gridX;
-        int tempY = a.gridY;
-
-        a.gridX = b.gridX;
-        a.gridY = b.gridY;
-
-        b.gridX = tempX;
-        b.gridY = tempY;
-
-        // Update grid array
-        grid[a.gridX, a.gridY] = a;
-        grid[b.gridX, b.gridY] = b;
-        //swap pieces 2,2 and 2,1
-        Vector3 tempPos = grid[2, 2].transform.position;
-        grid[2, 2].transform.position = grid[2, 1].transform.position;
-        grid[2, 1].transform.position = tempPos;
-        hasBeenSwapped = true;
-    }
-    if (gManage.currentDay == 3 && hasBeenSwapped == false)
-    {
-        puzzlePIece a = grid[1, 1];
-        puzzlePIece b = grid[1, 2];
-
-        int tempX = a.gridX;
-        int tempY = a.gridY;
-
-        a.gridX = b.gridX;
-        a.gridY = b.gridY;
-
-        b.gridX = tempX;
-        b.gridY = tempY;
-
-        // Update grid array
-        grid[a.gridX, a.gridY] = a;
-        grid[b.gridX, b.gridY] = b;
-        //swap pieces 1,1 and 1,2
-        Vector3 tempPos = grid[1, 1].transform.position;
-        grid[1, 1].transform.position = grid[1, 2].transform.position;
-        grid[1, 2].transform.position = tempPos;
-        hasBeenSwapped = true;
-    }
-    if (selectedPieces.Count >= 3)
-    {
-        selectedPieces.Clear();
-    }
-    }
+        if (hasBeenSwapped == true) return;
+        
+            
+        
+        
+}
 public void ClosePuzzleGame()
 {
+    mainCam.transform.localPosition = originalCam;
     playerCont.playerCanMove = true;
     Cursor.lockState = CursorLockMode.Locked;
     
 }
 public void FinishPuzzleGame() 
-{
+{   
+    mainCam.transform.localPosition = originalCam;
     playerCont.playerCanMove = true;
     Cursor.lockState = CursorLockMode.Locked;
     gManage.slidingPuzzleSolved = true;
+    hasBeenSwapped = false;
 }
 public void StartPuzzle()
     {
@@ -137,6 +154,7 @@ public void StartPuzzle()
         HousePuzzleIsActive = true;
         playerCont.playerCanMove = false;
         Cursor.lockState = CursorLockMode.Confined;
+        originalCam = mainCam.transform.localPosition;
         mainCam.transform.position=cameraPosition.transform.position;
         mainCam.transform.rotation = cameraPosition.transform.rotation;
     }

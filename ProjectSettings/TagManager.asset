@@ -12,6 +12,8 @@ TagManager:
   - Devmenu
   - MusicPlayer
   - Cat
+  - slidingPuzzle
+  - sliderHolderTag
   layers:
   - Default
   - TransparentFX
